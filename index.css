@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+:root {
+  --bg: #0d0d0d;
+  --surface: #141414;
+  --border: #2a2a2a;
+  --accent: #c8f135;
+  --accent-dim: #9ab82a;
+  --text: #f0f0f0;
+  --muted: #555;
+  --easy: #c8f135;
+  --medium: #f1a135;
+  --hard: #f13535;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'DM Mono', monospace;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(200, 241, 53, 0.07) 0%, transparent 70%);
+    overflow-y: hidden;
+    overflow-x:hidden ;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 520px;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--text);
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 4px;
+  background: var(--accent);
+  margin-top: 12px;
+}
+
+
+.pick {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pick .div:first-child {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.pick .div:last-child {
+  display: flex;
+  gap: 10px;
+}
+
+.pick button {
+  flex: 1;
+  padding: 12px 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pick button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.pick button.easy::before  { background: var(--easy); }
+.pick button.medium::before { background: var(--medium); }
+.pick button.hard::before  { background: var(--hard); }
+
+.pick button:hover::before,
+.pick button.active::before {
+  opacity: 0.12;
+}
+
+.pick button.easy:hover,
+.pick button.easy.active   { border-color: var(--easy);   color: var(--easy); }
+.pick button.medium:hover,
+.pick button.medium.active { border-color: var(--medium); color: var(--medium); }
+.pick button.hard:hover,
+.pick button.hard.active   { border-color: var(--hard);   color: var(--hard); }
+
+
+.guess {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.guess > div:first-child {
+  display: flex;
+  gap: 10px;
+}
+
+.guess input[type="number"] {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'DM Mono', monospace;
+  font-size: 1rem;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  -moz-appearance: textfield;
+}
+
+.guess input[type="number"]::-webkit-outer-spin-button,
+.guess input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.guess input[type="number"]:focus {
+  border-color: var(--accent);
+}
+
+.guess input::placeholder {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.guess > div:first-child > button {
+  padding: 14px 22px;
+  background: var(--accent);
+  border: none;
+  color: #0d0d0d;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.guess > div:first-child > button:hover {
+  background: var(--accent-dim);
+}
+
+.guess > div:first-child > button:active {
+  transform: scale(0.97);
+}
+
+
+.guess > div:last-child {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.high, .low {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.high > div:first-child,
+.low > div:first-child {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+
+
+ul{  font-size: 1.6rem;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  min-height: 2rem;
+  list-style: none;  
+}
+
+.highGuess li, .lowGuess li {
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.winner-div {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.56rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  min-height: 1.5rem;
+  animation: fadeIn 0.4s ease;
+  text-align: center;
+}
+
+
+.active{
+    border: 2px solid white;
+    box-shadow: 0 0 15px white;
+    transition: all 0.3s ease;
+}
+
+.reset:hover {
+    border: 2px solid var(--hard);
+    box-shadow: 0 0 15px var(--hard);
+    color: var(--hard);
+    transition: all 0.3s ease;
+}
+.reset{
+      flex: 1;
+  padding: 12px 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 420px) {
+  .wrapper { padding: 32px 20px; }
+  .pick .div:last-child { flex-direction: column; }
+}
+
+.type{
+    display: flex;
+    flex-direction: column;
+}
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div class="wrapper">
+
+
+        <h1>Guess The Player</h1>
+        <div class="tries">Tries left:7</div>
+        <div class="pick">
+            <div class="headline">Pick A Number Between</div>
+            <div class="div type">
+                <button type="submit" class="easy">0-10</button>
+                
+                <button type="submit" class="medium">0-100</button>
+                <button type="submit" class="hard">0-1000</button>
+            </div>
+        </div>
+
+        <div class="guess">
+
+            <div>
+                
+                    <input type="number" name="" placeholder="Enter Your Guess" class="input" >
+                    <button class="submitBtn" >Submit</button>
+                
+            </div>
+
+
+            <div>
+                <div class="high">
+                    <div >High Guess</div>
+                    <ul class="highGuess"></ul>
+                </div>
+                <div class="low">
+                    <div >Low Guess</div>
+                    <ul class="lowGuess"></ul>
+                </div>
+            </div>
+            
+        </div>
+        <div class="winner-div">
+
+            
+        </div>
+        <button class="reset">New Game</button>
+        <audio class="music" src="mixkit-wrong-answer-bass-buzzer-948.wav"></audio>
+        <audio class="loseMusic" src="tuomas_data-game-over-39-199830 (1).mp3"></audio>
+        <audio class="musicWin" src="pw23check-winning-218995.mp3"></audio>
+
+    </div>
+    
+
+    <script src="indexx.js"></script>
+</body>
+</html> 
